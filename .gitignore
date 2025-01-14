@@ -1,0 +1,12 @@
+.vercel
+# Ignore settings.py file
+coopecmicrotous_website/settings.py
+
+# Ignore .env file for environment variables (optional)
+.env
+
+# Ignore database files (optional, e.g., SQLite)
+db.sqlite3
+
+# Ignore other local configurations
+*.local
