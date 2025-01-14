@@ -4,19 +4,12 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
+# Security settings
 SECRET_KEY = 'django-insecure-*7p3ue9yrqzjx9qt!=32f*uqos^76bf5(&23&d6yk+r-2thcu&'
+DEBUG = False  # Set to False in production!
+ALLOWED_HOSTS = ['microtousadmin.onrender.com', '127.0.0.1', 'localhost', 'microtousadmin-upxd.vercel.app']
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # Set to False in production!
-
-ALLOWED_HOSTS = ['microtousadmin.onrender.com', '127.0.0.1', 'localhost']
-
-# Application definition
-
+# Installed apps
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -30,11 +23,12 @@ INSTALLED_APPS = [
     'corsheaders',  # CORS support
 ]
 
+# Middleware settings
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this line for static file handling
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this for static file handling
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -42,8 +36,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# URL configuration
 ROOT_URLCONF = 'coopecmicrotous_website.urls'
 
+# Templates settings
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -62,15 +58,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'coopecmicrotous_website.wsgi.application'
 
-# Database configuration
+# Database settings
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',  # Use PostgreSQL or MySQL in production
-        'NAME': BASE_DIR / 'db.sqlite3',  # For development, SQLite is fine
+        'ENGINE': 'django.db.backends.sqlite3',  # Switch to PostgreSQL or MySQL for production
+        'NAME': BASE_DIR / 'db.sqlite3',  # For development
     }
 }
 
-# Password validation
+# Password validation settings
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -86,33 +82,27 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Internationalization
-LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
-USE_I18N = True
-USE_TZ = True
-
-# Static and media files
+# Static files settings
 STATIC_URL = 'static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Media files (uploads)
+# Media files settings
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # CORS settings (for React frontend)
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',  # React frontend
+    'https://microtousadmin-upxd.vercel.app',  # Vercel frontend URL
 ]
 
-# Email settings (environment variables should be used for security)
+# Email settings (replace with environment variables in production)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'coopecmicrotous@gmail.com'  # Use environment variables for email/password in production
-EMAIL_HOST_PASSWORD = 'qaxe xcgt vxuj cznb'  # Use environment variables for security!
+EMAIL_HOST_USER = 'coopecmicrotous@gmail.com'
+EMAIL_HOST_PASSWORD = 'qaxe xcgt vxuj cznb'
 
-# SITE_ID setting
-SITE_ID = 1  # Ensure this matches the Site you created in the Django shell
-
+# Site ID
+SITE_ID = 1
