@@ -137,7 +137,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # File system location for media f
 # Debug settings
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['microtous.onrender.com']
+
 
 
 
