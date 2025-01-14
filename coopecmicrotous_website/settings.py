@@ -107,3 +107,4 @@ EMAIL_HOST_PASSWORD = 'qaxe xcgt vxuj cznb'
 # Site ID
 SITE_ID = 1
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+ALLOWED_HOSTS = ['https://microtousadmin-h2jm.vercel.app', '127.0.0.1', 'localhost']
