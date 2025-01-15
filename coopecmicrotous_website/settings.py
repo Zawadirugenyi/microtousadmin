@@ -145,8 +145,8 @@ ALLOWED_HOSTS = ['microtousadmin.onrender.com' ,  '127.0.0.1', 'localhost']
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000', 
-    'https://coopecmicrotous.vercel.app/', # React localhost
-    'https://microtousadmin.onrender.com',  # React frontend on Vercel
+    'https://coopecmicrotous.vercel.app', # React localhost
+    'https://microtousadmin.onrender.com', # React frontend on Vercel
 ]
 
 # Email settings (use environment variables for security)
